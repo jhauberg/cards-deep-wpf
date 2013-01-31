@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="CardsDeep.Controls.HealthMeter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:CardsDeep.ViewModel"
+             mc:Ignorable="d"
+             Height="28"
+             d:DesignWidth="300">
+
+    <UserControl.DataContext>
+        <vm:HealthViewModel MaxValue="20"
+                            Value="20" />
+    </UserControl.DataContext>
+
+    <Border Background="Gray">
+        <Grid>
+            <Rectangle Fill="Coral"
+                       x:Name="fillRectangle">
+                <Rectangle.RenderTransform>
+                    <ScaleTransform ScaleX="{Binding Ratio}" />
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <TextBlock Text="{Binding Value}"
+                       Foreground="PapayaWhip"
+                       VerticalAlignment="Bottom"
+                       Margin="8,0,0,-10"
+                       HorizontalAlignment="Left"
+                       FontSize="40"
+                       FontWeight="Normal" />
+        </Grid>
+    </Border>
+</UserControl>
